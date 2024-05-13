@@ -1,4 +1,4 @@
 appName = "doliveira-echo-app"
 appServiceName = "api"
-dbName = "my-echodb"
+dbName = "doliveira-echodb"
 dbAdmin = "dbadmin"
