@@ -1,0 +1,8 @@
+{
+  "name": "gh-repo-env-prod",
+  "issuer": "https://token.actions.githubusercontent.com",
+  "subject": "repo:DanielMOliveira/echo-app:environment:uat",
+  "audiences": [
+    "api://AzureADTokenExchange"
+  ]
+}
