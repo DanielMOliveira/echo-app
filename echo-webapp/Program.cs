@@ -28,12 +28,24 @@ builder.Services.AddAzureAppConfiguration();
 builder.Services.AddFeatureManagement();
 
 // Load configuration from Azure App Configuration
+
+
 builder.Configuration.AddAzureAppConfiguration(options =>
 {
-    options.Connect(builder.Configuration["AppConfigConnString"]);
+    options.Connect(builder.Configuration["AppConfigConnString"])
+    .UseFeatureFlags(flagOptions =>
+           {
+               flagOptions.CacheExpirationInterval = TimeSpan.FromSeconds(5);
+           })
+           .ConfigureRefresh(refresh =>
+           {
+               refresh.Register("FeatureManagement:FeatureToggles:*", refreshAll: true);
+               refresh.SetCacheExpiration(TimeSpan.FromSeconds(5));
+           });
     // Load all feature flags with no label
     options.UseFeatureFlags();
 });
+
 
 var app = builder.Build();
 
