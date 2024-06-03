@@ -24,10 +24,10 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.BASE_URL || 'http://doliveira-echo-app-webapp-uat.azurewebsites.net/',
+    // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on', //'on-first-retry',
+    trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
@@ -64,7 +64,7 @@ export default defineConfig({
     // },
     // {
     //   name: 'Google Chrome',
-    //   use: { ..devices['Desktop Chrome'], channel: 'chrome' },
+    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
 
